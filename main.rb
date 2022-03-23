@@ -1,5 +1,7 @@
 class Game
-  def initialize
+  def initialize(player_one, player_two)
+    @player_one = player_one
+    @player_two = player_two
     board = [%w[_ _ _], %w[_ _ _], %w[_ _ _]]
     board.each do |row|
       p row
@@ -7,4 +9,25 @@ class Game
   end
 end
 
-Game.new
+class Player
+  def initialize(mark)
+  end
+end
+
+class Choice
+  def initialize
+    puts 'Player One: Choose x or o'
+    choice = gets.chomp
+    player_one = Player.new(choice)
+    if choice == 'x'
+      puts 'Player one has chosen x. Player two is o.'
+      player_two = Player.new('o')
+    else
+      puts 'Player one has chosen o. Player two is x.'
+      player_two = Player.new('x')
+    end
+    Game.new(player_one, player_two)
+  end
+end
+
+Choice.new
