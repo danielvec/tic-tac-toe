@@ -1,16 +1,23 @@
 class Game
+  BOARD = [%w[_ _ _], %w[_ _ _], %w[_ _ _]]
   def initialize(player_one, player_two)
     @player_one = player_one
     @player_two = player_two
-    board = [%w[_ _ _], %w[_ _ _], %w[_ _ _]]
-    board.each do |row|
-      p row
-    end
+    display_board
+    puts @player_one.mark
+  end
+
+  def display_board
+    BOARD.each do |row|
+        p row
+      end
   end
 end
 
 class Player
+  attr_reader :mark
   def initialize(mark)
+    @mark = mark
   end
 end
 
