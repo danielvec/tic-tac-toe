@@ -6,27 +6,39 @@ class Game
     def initialize(player_one, player_two)
       @player_one = player_one
       @player_two = player_two
-      play_game
     end
 
     def play_game
-        display_board
-        if @player_one.mark == 'x'
-          @player_one.make_move
-          move_after_player_one
-        else
-          @player_two.make_move
-          move_after_player_two
-        end
+      display_board
+      first_move
     end
   
+    private
+    
+    def first_move
+      if @player_one.mark == 'x'
+        player_one_turn
+      else
+        player_two_turn
+      end
+    end
+
+    def player_one_turn
+      @player_one.make_move
+      move_after_player_one
+    end
+
+    def player_two_turn
+      @player_two.make_move
+      move_after_player_two
+    end
+
     def move_after_player_one
       if winner
         puts "winner is #{@player_one.mark}"
         exit
       elsif BOARD.flatten.include? '_'
-        @player_two.make_move
-        move_after_player_two
+        player_two_turn
       else
         puts 'game over. draw.'
         exit
@@ -38,8 +50,7 @@ class Game
         puts "winner is #{@player_two.mark}"
         exit
       elsif BOARD.flatten.include? "_"
-        @player_one.make_move
-        move_after_player_one
+        player_one_turn
       else
         puts "game over. draw."
         exit

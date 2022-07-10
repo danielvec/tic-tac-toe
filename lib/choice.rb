@@ -17,7 +17,8 @@ class Choice
       player_one = Player.new(mark_one)
       player_two = Player.new(mark_two)
       puts "Player one has chosen #{mark_one}. Player two is #{mark_two}."
-      Game.new(player_one, player_two)
+      new_game = Game.new(player_one, player_two)
+      new_game.play_game
     end
 
     private
