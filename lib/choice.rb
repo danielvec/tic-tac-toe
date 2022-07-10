@@ -8,11 +8,11 @@ class Choice
     def initialize
       @mark_one = mark_one
       @mark_two = mark_two
-    end
-
-    def setup_game
       chosen_mark
       other_mark
+    end
+
+    def setup_game(mark_one, mark_two)
       player_one = Player.new(mark_one)
       player_two = Player.new(mark_two)
       puts "Player one has chosen #{mark_one}. Player two is #{mark_two}."

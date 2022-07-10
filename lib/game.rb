@@ -6,14 +6,17 @@ class Game
     def initialize(player_one, player_two)
       @player_one = player_one
       @player_two = player_two
-      display_board
-      if @player_one.mark == 'x'
-        @player_one.make_move
-        move_after_player_one
-      else
-        @player_two.make_move
-        move_after_player_two
-      end
+    end
+
+    def play_game
+        display_board
+        if @player_one.mark == 'x'
+          @player_one.make_move
+          move_after_player_one
+        else
+          @player_two.make_move
+          move_after_player_two
+        end
     end
   
     def move_after_player_one
