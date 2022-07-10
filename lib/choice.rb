@@ -10,6 +10,7 @@ class Choice
       @mark_two = mark_two
       chosen_mark
       other_mark
+      setup_game(mark_one, mark_two)
     end
 
     def setup_game(mark_one, mark_two)

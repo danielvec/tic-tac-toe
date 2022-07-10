@@ -8,19 +8,15 @@ class Player
     def initialize(mark)
       @mark = mark
     end
-  
+
     def make_move
       puts "#{@mark}'s turn"
       row
       column
-      if BOARD[@row][@column] == '_'
-        BOARD[@row][@column] = @mark
-        display_board
-      else
-        puts 'spot already taken'
-        make_move
-      end
+      mark_board
     end
+
+    private
   
     def row
       puts 'choose a row between 1 and 3'
@@ -38,6 +34,16 @@ class Player
   
       puts 'not a valid column'
       column
+    end
+
+    def mark_board
+      if BOARD[@row][@column] == '_'
+        BOARD[@row][@column] = @mark
+        display_board
+      else
+        puts 'spot already taken'
+        make_move
+      end
     end
   end
   
