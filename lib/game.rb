@@ -1,4 +1,5 @@
-require_relative 'display_board'
+require_relative '../lib/display_board'
+
 
 # takes in two players and plays a game of tic-tac-toe
 class Game
@@ -12,9 +13,7 @@ class Game
       display_board
       first_move
     end
-  
-    private
-    
+
     def first_move
       if @player_one.mark == 'x'
         player_one_turn
